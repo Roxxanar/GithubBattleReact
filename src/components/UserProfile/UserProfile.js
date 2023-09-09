@@ -1,41 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const UserProfile = ({ accessToken }) => {
 
-   
-  const [user, setUser] = useState(null);
+function UserProfile(props) {
+  const [userData, setUserData] = useState(null);
+  const userAccessToken = props.accessToken; // Replace with your actual user access token
 
   useEffect(() => {
-    if (accessToken) {
-      // Make a request to fetch user information using the access token
-      axios
-        .get('https://api.github.com/user', {
+    // Create a function to fetch user data
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get('https://api.github.com/user', {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bearer ${userAccessToken}`,
+            'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28',
           },
-        })
-        .then((response) => {
-          setUser(response.data);
-        })
-        .catch((error) => {
-          console.error('Error fetching user data', error);
         });
-    }
-  }, [accessToken]);
 
-  if (!user) {
+        // Update the state with the user data
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Error fetching user data', error);
+      }
+    };
+
+    // Call the fetchUserData function
+    fetchUserData();
+  }, [userAccessToken]);
+
+  if (!userData) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h2>{user.login}'s GitHub Profile</h2>
-      <p>Name: {user.name}</p>
-      <p>Followers: {user.followers}</p>
+      <h2>{userData.login}'s GitHub Profile</h2>
+      <p>Name: {userData.name}</p>
+      <p>Followers: {userData.followers}</p>
       {/* Display other user data */}
     </div>
   );
-};
+}
 
 export default UserProfile;

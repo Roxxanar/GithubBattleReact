@@ -1,6 +1,7 @@
 import icon from "./icon-github.png";
 import logo from "./battle-github-logo.PNG";
 import "./StartPage.css";
+// import AuthCallback from "../UserProfile/AuthCallback";
 
 import { Link } from "react-router-dom";
 
@@ -41,9 +42,10 @@ function StartPage() {
           <button onClick={handleLoginWithGithub} className="LogInWithGithub">Log In With Github</button>
         
         </div>
-        <Link to="/firstpage">
+        <Link to="/auth/callback">
           <button className="StartPlaying">Start Playing</button>
         </Link>
+        
       </div>
     </>
   );

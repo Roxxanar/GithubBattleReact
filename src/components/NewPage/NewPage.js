@@ -1,3 +1,4 @@
+
 import UserProfile from "../UserProfile/UserProfile";
 import "./NewPage.css";
 
@@ -10,7 +11,8 @@ function NewPage() {
 
           {/* <NavLink to="/userpage">Tasks</NavLink> */}
         </div>
-        <UserProfile/>
+        
+        <UserProfile accessToken={localStorage.getItem('access_token')} />
       </div>
     </>
   );
