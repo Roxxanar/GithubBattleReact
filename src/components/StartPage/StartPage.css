@@ -1,5 +1,5 @@
 .App-container {
-    width: 50vw;
+    width:50vw;
     height:80vh;
       background-color: #D5CBDF;
       border-radius: 40px;
@@ -17,11 +17,12 @@
       display:flex;
       align-items: center;
       gap:1vw;
+     
     }
     
     .App-logo {
-      
-      width:20vw;
+      margin-top:-40px;
+      width:330px;
     }
     
     .LogInWithGithub {
@@ -32,10 +33,23 @@
       background-color: black;
       border-radius: 50px;
       border: none;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+    }
+
+    .StartPlaying {
+    
+      width: 180px;
+      height:50px;
+      color:#BAAFC6;
+      background-color: black;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.2rem;
+      margin-left:68px;
     }
 
     p {
-
+font-size: 1.1rem;
+color: #515151;
       margin: 0px 0px 0px 0px;
     }

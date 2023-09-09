@@ -1,43 +1,50 @@
 import icon from "./icon-github.png";
 import logo from "./battle-github-logo.PNG";
 import "./StartPage.css";
-import {NavLink} from "react-router-dom";
 
+import { Link } from "react-router-dom";
 
 function StartPage() {
 
-
   const handleLoginWithGithub = () => {
-   
-    // Redirect the user to GitHub OAuth authorization URL
-    window.location.href = `https://github.com/login/oauth/authorize?client_id=9740fe79204307102624&scope=user`;
+    // Replace with your GitHub OAuth application's client ID
+    const clientId = '9740fe79204307102624';
+    const redirectUri = 'http://localhost:3000/callback'; // Should match the callback URL you set up
+    const scope = 'user'; // Additional scopes can be added here
+
+    const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
+
+    window.location.href = authUrl;
   };
+
 
   return (
     <>
-    <div className="App-container">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p> Welcome to Github Battle!</p>
-      <p>
-        Discover and compare profiles against each other and see who wins the
-        most duels
-      </p>
-      <p>Join the battle and let the coding games begin!</p>
-      <div className="LogIn">
-        <img src={icon} className="Icon-github" alt="icon-github" />
+      <div className="App-container">
+        <img src={logo} className="App-logo" alt="logo" />
 
-        <button 
-        onClick={handleLoginWithGithub} className="LogInWithGithub">
+       <br></br>
 
-          Log In With Github
-        </button>
+        <p> Welcome to Github Battle!</p>
+        <p>
+          Discover and compare profiles against each other and see who wins the
+          most duels
+        </p>
+        <p>Join the battle and let the coding games begin!</p>
+
+        <br></br>
+        <br></br>
+
+        <div className="LogIn">
+          <img src={icon} className="Icon-github" alt="icon-github" />
         
-          {/* <NavLink to="/userpage">Tasks</NavLink> */}
-       
-       
+          <button onClick={handleLoginWithGithub} className="LogInWithGithub">Log In With Github</button>
+        
+        </div>
+        <Link to="/firstpage">
+          <button className="StartPlaying">Start Playing</button>
+        </Link>
       </div>
-    </div>
-   
     </>
   );
 }

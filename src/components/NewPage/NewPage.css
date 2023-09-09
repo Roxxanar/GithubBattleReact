@@ -1,0 +1,24 @@
+.App-container-newpage {
+    width: 70vw;
+    height:80vh;
+      background-color: #D5CBDF;
+      border-radius: 40px;
+    
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap:25px;
+    
+    }
+
+    .LogOut {
+
+      width: 100px;
+      height:40px;
+      color:#BAAFC6;
+      background-color: black;
+      border-radius: 50px;
+      border: none;
+      font-size: 1.1rem;
+    }
