@@ -28,7 +28,7 @@ function App() {
               <Routes>
                 <Route path="/homepage" element={<HomePage />} />
                 <Route path="/firstpage" element={<FirstPage />} />
-                <Route path="/auth/callback" element={<AuthCallback/>} />
+                <Route path="/callback" element={<AuthCallback/>} />
                 <Route path="*" element={<HomePage />} />
                
               </Routes>

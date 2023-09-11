@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-function UserProfile(props) {
+function UserProfile() {
   const [userData, setUserData] = useState(null);
-  const userAccessToken = props.accessToken; // Replace with your actual user access token
-
+  const userAccessToken = localStorage.getItem('access_token'); // Replace with your actual user access token
+console.log(userAccessToken);
   useEffect(() => {
     // Create a function to fetch user data
     const fetchUserData = async () => {
@@ -29,6 +29,8 @@ function UserProfile(props) {
     fetchUserData();
   }, [userAccessToken]);
 
+
+  console.log(userData);
   if (!userData) {
     return <div>Loading...</div>;
   }

@@ -7,9 +7,10 @@ import FirstPage from '../../pages/firstpage';
 function AuthCallback() {
   useEffect(() => {
     const code = new URLSearchParams(window.location.search).get("code");
+    console.log(code);
     if (code) {
       const clientId = '9740fe79204307102624'; // Replace with your GitHub OAuth app's client ID
-      const clientSecret = '48d188cce6e8a4fefd6317f9b8013f8868690b6c'; // Replace with your GitHub OAuth app's client secret
+      const clientSecret = '804832ee6f80e55f46b47600fed0a1dbc51fed2e'; // Replace with your GitHub OAuth app's client secret
       const redirectUri = 'http://localhost:3000/callback'; // Replace with your app's redirect URI
 
       const params = {
@@ -19,24 +20,27 @@ function AuthCallback() {
         redirect_uri: redirectUri,
       };
 
-      axios.post('https://github.com/login/oauth/access_token', null, {
+      console.log(params);
+
+      axios.post('/github-access-token', {
         params: params,
         headers: {
           'Accept': 'application/json'
         }
-      }).then(response => {
+        
+      })
+      .then(response => {
+        // Handle the response data
         const userAccessToken = response.data.access_token;
-
-      
-        // You can store the access token in local storage, context, or state
-        localStorage.setItem('access_token', userAccessToken);
-      console.log(userAccessToken);
-        // Redirect the user to the desired page, e.g., your app's home page
-        window.location.href = '/'; // Replace with your desired page
-      }).catch(error => {
+        console.log('Access token:', userAccessToken);
+    
+        // Other code here...
+      })
+      .catch(error => {
+        // Handle errors
         console.error('Error exchanging code for access token:', error);
       });
-      
+       
     }
   }, []);
 
