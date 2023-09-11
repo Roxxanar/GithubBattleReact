@@ -2,7 +2,8 @@ import backgroundImage from "./blurry-gradient-haikei.png";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
-import AuthCallback from "./components/UserProfile/AuthCallback";
+
+
 
 
 const HomePage = lazy(() => import("./pages/homepage"));
@@ -28,7 +29,6 @@ function App() {
               <Routes>
                 <Route path="/homepage" element={<HomePage />} />
                 <Route path="/firstpage" element={<FirstPage />} />
-                <Route path="/callback" element={<AuthCallback/>} />
                 <Route path="*" element={<HomePage />} />
                
               </Routes>

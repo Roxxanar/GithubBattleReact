@@ -1,23 +1,41 @@
 import icon from "./icon-github.png";
 import logo from "./battle-github-logo.PNG";
 import "./StartPage.css";
-// import AuthCallback from "../UserProfile/AuthCallback";
+import { Link } from "react-router-dom";
+import { app } from "../FirebaseApp";
 
-// import { Link } from "react-router-dom";
+
+import { getAuth, signInWithPopup, GithubAuthProvider } from "firebase/auth";
+
 
 function StartPage() {
 
-  const handleLoginWithGithub = () => {
-    // Replace with your GitHub OAuth application's client ID
-    const clientId = '9740fe79204307102624';
-    const redirectUri = 'http://localhost:3000/callback'; // Should match the callback URL you set up
-    const scope = 'user'; // Additional scopes can be added here
+  const provider = new GithubAuthProvider();
 
-    const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`;
+  const auth = getAuth();
 
-    window.location.href = authUrl;
-  };
-
+  const signuphandle = () => signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a GitHub Access Token. You can use it to access the GitHub API.
+    const credential = GithubAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    console.log(token);
+    localStorage.setItem("accessToken", token);
+    // The signed-in user info.
+    const user = result.user;
+   
+    // IdP data available using getAdditionalUserInfo(result)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GithubAuthProvider.credentialFromError(error);
+    // ...
+  });
 
   return (
     <>
@@ -38,13 +56,13 @@ function StartPage() {
 
         <div className="LogIn">
           <img src={icon} className="Icon-github" alt="icon-github" />
-        
-          <button onClick={handleLoginWithGithub} className="LogInWithGithub">Log In With Github</button>
-        
+          <Link to="/firstpage">
+          <button onClick={signuphandle} className="LogInWithGithub">Log In With Github</button>
+        </Link>
         </div>
-        {/* <Link to="/auth/callback">
-          <button className="StartPlaying">Start Playing</button>
-        </Link> */}
+      
+          {/* <button className="StartPlaying">Start Playing</button> */}
+        
         
       </div>
     </>

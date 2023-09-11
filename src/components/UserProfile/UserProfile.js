@@ -1,48 +1,43 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import "./UserProfile.css"
 
 
-function UserProfile() {
+const UserProfile = () => {
   const [userData, setUserData] = useState(null);
-  const userAccessToken = localStorage.getItem('access_token'); // Replace with your actual user access token
-console.log(userAccessToken);
+
   useEffect(() => {
-    // Create a function to fetch user data
-    const fetchUserData = async () => {
-      try {
-        const response = await axios.get('https://api.github.com/user', {
-          headers: {
-            Authorization: `Bearer ${userAccessToken}`,
-            'Accept': 'application/vnd.github+json',
-            'X-GitHub-Api-Version': '2022-11-28',
-          },
-        });
-
-        // Update the state with the user data
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Error fetching user data', error);
-      }
-    };
-
-    // Call the fetchUserData function
-    fetchUserData();
-  }, [userAccessToken]);
-
-
-  console.log(userData);
-  if (!userData) {
-    return <div>Loading...</div>;
-  }
+    // Make a request to the GitHub API using the access token
+    const accessToken = localStorage.getItem("accessToken");
+    fetch("https://api.github.com/user", {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching GitHub user data:", error);
+      });
+  }, []);
 
   return (
     <div>
-      <h2>{userData.login}'s GitHub Profile</h2>
-      <p>Name: {userData.name}</p>
-      <p>Followers: {userData.followers}</p>
-      {/* Display other user data */}
+      <h2>GitHub Profile</h2>
+      {userData ? (
+        <div className="GithubProfile">
+          <p>{userData.login}</p>
+          <img style={{ width: "150px" }} src={userData.avatar_url} alt={userData.login} />
+          <p>Public Repositories: {userData.public_repos}</p>
+<p>Followers: {userData.followers}</p>
+          {/* Display other user details as needed */}
+        </div>
+      ) : (
+        <p>Loading GitHub user data...</p>
+      )}
     </div>
   );
-}
+};
 
 export default UserProfile;

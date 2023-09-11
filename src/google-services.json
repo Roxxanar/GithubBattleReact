@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "681106728086",
+    "project_id": "github-battle-9c4d4",
+    "storage_bucket": "github-battle-9c4d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681106728086:android:5c1d190649537168064eb7",
+        "android_client_info": {
+          "package_name": "github.battle.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDibUYQ7g3tbuJFwb0x6Ee19lEO9_sOinc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
