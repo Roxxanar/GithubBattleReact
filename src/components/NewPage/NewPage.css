@@ -1,6 +1,6 @@
 .App-container-newpage {
-  width: 70vw;
-  height: 80vh;
+  width: 71vw;
+  height: 600px;
   background-color: #d5cbdf;
   border-radius: 40px;
 
@@ -8,12 +8,16 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 25px;
+  /* gap: 10px; */
+
+  text-align: center;
+  
 }
 
 .LogOut-container {
-  padding: 0vh 0vw 0vh 60vw;
-  margin-top: -150px;
+  position: absolute;
+padding-left: 950px;
+padding-bottom: 520px;
 }
 
 .LogOut {
@@ -24,4 +28,28 @@
   border-radius: 50px;
   border: none;
   font-size: 1.1rem;
+}
+
+.UserProfile-container {
+position: absolute;
+  padding-bottom: 120px;
+}
+
+.StartPlaying {
+    
+  width: 180px;
+  height:50px;
+  color:#BAAFC6;
+  background-color: black;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.2rem;
+  margin-left:68px;
+}
+
+.StartPl-container {
+position: absolute;
+padding-top: 450px;
+  padding-right: 80px;
+  
 }

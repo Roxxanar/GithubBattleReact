@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./UserProfile.css"
-
+import "./UserProfile.css";
 
 const UserProfile = () => {
   const [userData, setUserData] = useState(null);
@@ -23,14 +22,18 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h2>GitHub Profile</h2>
       {userData ? (
         <div className="GithubProfile">
           <p>{userData.login}</p>
-          <img style={{ width: "150px" }} src={userData.avatar_url} alt={userData.login} />
+          <img
+            style={{ width: "150px" }}
+            src={userData.avatar_url}
+            alt={userData.login}
+          />
           <p>Public Repositories: {userData.public_repos}</p>
-<p>Followers: {userData.followers}</p>
+          <p>Followers: {userData.followers}</p>
           {/* Display other user details as needed */}
         </div>
       ) : (

@@ -1,6 +1,4 @@
-
-import UserProfile from "../UserProfile/UserProfile";
-import "./NewPage.css";
+import "./PlayPage.css";
 import { Link } from "react-router-dom";
 
 import { getAuth, signOut } from "firebase/auth";
@@ -28,14 +26,7 @@ signOut(auth).then(() => {
 </Link>
   
         </div>
-        <div className="UserProfile-container">
-        <UserProfile/>
-        </div>
-        <div className="StartPl-container">
-        <Link to="/playpage">
-        <button className="StartPlaying">Start Playing</button>
-        </Link>
-        </div>
+        <button className="FindOpponent">Find Opponent</button>
       </div>
     </>
   );

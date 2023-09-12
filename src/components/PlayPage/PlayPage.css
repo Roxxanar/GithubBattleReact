@@ -1,0 +1,27 @@
+.LogOut-container {
+    position: absolute;
+  padding-left: 950px;
+  padding-bottom: 520px;
+  }
+  
+  .LogOut {
+    width: 100px;
+    height: 40px;
+    color: #baafc6;
+    background-color: black;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+  }
+
+  .FindOpponent {
+
+    width: 180px;
+    height:50px;
+    color:#BAAFC6;
+    background-color: black;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.2rem;
+   
+  }

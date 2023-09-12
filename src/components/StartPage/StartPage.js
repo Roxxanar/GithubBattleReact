@@ -61,7 +61,7 @@ function StartPage() {
         </Link>
         </div>
       
-          {/* <button className="StartPlaying">Start Playing</button> */}
+          
         
         
       </div>
