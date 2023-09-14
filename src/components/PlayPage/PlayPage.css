@@ -1,3 +1,19 @@
+.App-container-playpage {
+    width: 71vw;
+    height: 600px;
+    background-color: #d5cbdf;
+    border-radius: 40px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 10px; */
+  
+    text-align: center;
+    
+  }
+
 .LogOut-container {
     position: absolute;
   padding-left: 950px;

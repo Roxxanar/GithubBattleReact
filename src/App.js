@@ -9,6 +9,7 @@ import { Suspense, lazy } from "react";
 const HomePage = lazy(() => import("./pages/homepage"));
 const FirstPage = lazy(() => import("./pages/firstpage"));
 const GamePage = lazy(() => import("./pages/playpage"));
+const DuelsPage = lazy(() => import("./pages/duelpage"));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/homepage" element={<HomePage />} />
                 <Route path="/firstpage" element={<FirstPage />} />
                 <Route path="/playpage" element={<GamePage />} />
+                <Route path="/duelpage" element={<DuelsPage />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<HomePage />} />
                
