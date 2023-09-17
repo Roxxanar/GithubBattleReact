@@ -30,6 +30,12 @@
     font-size: 1.1rem;
   }
 
+  .FindOpp-container {
+
+    position: absolute;
+    margin-top: 150px;
+  }
+
   .FindOpponent {
 
     width: 180px;

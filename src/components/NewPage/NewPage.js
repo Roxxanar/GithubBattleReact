@@ -4,7 +4,7 @@ import "./NewPage.css";
 import { Link } from "react-router-dom";
 
 import { getAuth, signOut } from "firebase/auth";
-import { app } from "../FirebaseApp";
+import { app } from "../FirebaseApp/FirebaseApp";
 
 
 function NewPage() {

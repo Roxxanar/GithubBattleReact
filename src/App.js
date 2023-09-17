@@ -3,7 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from "react";
 
-
+// import Duel from "./components/DuelPage/Duel";
 
 
 const HomePage = lazy(() => import("./pages/homepage"));
