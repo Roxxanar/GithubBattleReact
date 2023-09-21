@@ -1,45 +1,50 @@
 .App-container {
-    width:50vw;
-    height:80vh;
-      background-color: #D5CBDF;
-      border-radius: 40px;
-    
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap:25px;
-    
-    }
-    
-    .LogIn {
-    
-      display:flex;
-      align-items: center;
-      gap:1vw;
-     
-    }
-    
-    .App-logo {
-      margin-top:-40px;
-      width:330px;
-    }
-    
-    .LogInWithGithub {
-    
-      width: 220px;
-      height:50px;
-      color:#BAAFC6;
-      background-color: black;
-      border-radius: 50px;
-      border: none;
-      font-size: 1.2rem;
-    }
+  width: 50vw;
+  height: 80vh;
+  background-color: #d5cbdf;
+  border-radius: 40px;
 
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
 
-    p {
-font-size: 1.1rem;
-color: #515151;
-      margin: 0px 0px 0px 0px;
-    }
+.LogIn {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.App-logo {
+  margin-top: -40px;
+  width: 320px;
+}
+
+.LogInWithGithub {
+  width: 220px;
+  height: 50px;
+  color: #baafc6;
+  background-color: black;
+  border-radius: 50px;
+  border: none;
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #515151;
+  margin: 0px 0px 0px 0px;
+}
+
+@media (max-width: 899px) {
+  p {
+    font-size: 1rem;
+  }
+
+  .App-logo {
+    
+    width: 250px;
+  }
+}
