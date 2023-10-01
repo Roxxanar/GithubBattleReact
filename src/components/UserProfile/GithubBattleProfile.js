@@ -7,7 +7,7 @@ import { app } from "../FirebaseApp/FirebaseApp";
 import WN from "./WN"
 import WNincrement from "./WNincrement"
 
-const GithubBattleProfile = (props) => {
+const GithubBattleProfile = () => {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const GithubBattleProfile = (props) => {
       .catch((error) => {
         console.error("Error fetching GitHub user data:", error);
       });
-  }, []);
+  }, [userData]);
 
   return (
     <div className="container">
@@ -54,8 +54,9 @@ const GithubBattleProfile = (props) => {
         <div className="GithubBattleProfile">
           <h2>{userData.login}</h2>
           <h2>Duels winned:</h2>
-          {/* <WNincrement/> */}
-           {/* <WN/> */}
+           <WN/>
+           <WNincrement/>
+          
         </div>
       ) : (
         <p>Loading GitHub user data...</p>

@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./Duel.css";
 import { app } from "../FirebaseApp/FirebaseApp";
 import { Link } from "react-router-dom";
-import GithubBattleProfile from "../UserProfile/GithubBattleProfile";
+// import GithubBattleProfile from "../UserProfile/GithubBattleProfile";
+
+import { WinnerContext } from "../Winner-context"; 
+
 
 var player1 = 0;
 var player2 = 0; 
-var Winner=null;
 
 function Duel() {
   const [userData, setUserData] = useState(null);
   const [userData2, setUserData2] = useState(null);
- 
+ const [Winner, setWinner]=useState(null);
 
   useEffect(() => {
     // Make a request to the GitHub API using the access token
@@ -30,23 +32,24 @@ function Duel() {
        
         if (userData.followers > userData2.followers) {
           player1++;
-          Winner=userData.login;
+          setWinner(userData.login);
           console.log(Winner);
         } else if (userData2.followers > userData.followers) {
           player2++;
-          Winner=userData2.login;
+          setWinner(userData2.login);
           console.log(Winner);
         }
       })
       .catch((error) => {
         console.error("Error fetching GitHub user data:", error);
       });
-  }, );
+  }, [userData, userData2, Winner]);
 
  
 
   return (
     <>
+    <WinnerContext.Provider value={Winner}>
       <div className="App-container-duel">
         <div className="players-container">
         <div className={`container-1 ${player1 > player2 ? 'green-bg' : player1 < player2 ? 'red-bg' : ''}`}>
@@ -111,7 +114,7 @@ function Duel() {
         </div>
       </div>
 
-     
+      </WinnerContext.Provider>
     </>
   );
   

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, set, get } from "firebase/database";
 import { app } from "../FirebaseApp/FirebaseApp";
-import Winner from "../DuelPage/Duel"
+import { useContext } from "react";
+import { WinnerContext } from "../Winner-context";
 
 function WNincrement() {
   const [databaseError, setDatabaseError] = useState(null);
   
-  const winner=Winner;
+  const winner = useContext(WinnerContext);
   console.log(winner);
   
   useEffect(() => {

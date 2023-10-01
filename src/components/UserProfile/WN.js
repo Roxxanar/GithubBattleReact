@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { getDatabase, ref, set, get } from "firebase/database";
 import { app } from "../FirebaseApp/FirebaseApp";
-import Winner from "../DuelPage/Duel"
+import { useContext } from "react";
+import { WinnerContext } from "../Winner-context";
 
 function WN() {
   const [databaseError, setDatabaseError] = useState(null);
   const [wnValue, setWNValue] = useState(null);
-  const winner=Winner;
+  const winner = useContext(WinnerContext);
   console.log(winner);
-  
+
   useEffect(() => {
     if (winner) {
       // If there's a winner, update their WN in the Firebase Realtime Database
-      
-      
+
       const db = getDatabase(app);
       const userRef = ref(db, `WinsNumber/${winner}/WN`); // Reference to the winner's WN
-
-     
 
       get(userRef)
         .then((snapshot) => {
@@ -43,7 +41,7 @@ function WN() {
 
   return (
     <div>
-     {databaseError && <p>Error: {databaseError}</p>}
+      {databaseError && <p>Error: {databaseError}</p>}
       {<p>0000{wnValue}</p>}
     </div>
   );
