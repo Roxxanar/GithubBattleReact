@@ -14,6 +14,7 @@ function NewPage() {
   const signouthandle = () => {
 signOut(auth).then(() => {
   console.log("Sign-out successful");
+  localStorage.removeItem('accessToken');
 }).catch((error) => {
   // An error happened.
 });

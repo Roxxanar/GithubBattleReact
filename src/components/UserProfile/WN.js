@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, set, get } from "firebase/database";
+import { getDatabase, ref, get } from "firebase/database";
 import { app } from "../FirebaseApp/FirebaseApp";
 import { useContext } from "react";
 import { WinnerContext } from "../Winner-context";
